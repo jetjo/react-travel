@@ -1,0 +1,9 @@
+{
+    "vue.features.codeActions.enable": false,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "cSpell.words": [
+        "Newbee",
+        "nextui"
+    ]
+}
