@@ -54,7 +54,7 @@ function getAdditionalModulePaths(options = {}) {
  *
  * @param {*} options
  */
-function getWebpackAliases(options = {}) {
+function _getWebpackAliases(options = {}) {
   const baseUrl = options.baseUrl;
 
   if (!baseUrl) {
@@ -69,6 +69,16 @@ function getWebpackAliases(options = {}) {
     };
   }
 }
+
+
+function getWebpackAliases ( options = {} )
+{
+  const res = _getWebpackAliases( options );
+  if ( res[ '@' ] ) return res;
+  res[ '@' ] = path.resolve( paths.appPath, 'src' );
+  return res;
+}
+
 
 /**
  * Get jest aliases based on the baseUrl of a compilerOptions object.
