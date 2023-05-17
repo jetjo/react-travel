@@ -1,24 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
+import 'antd/dist/reset.css';
 import style from './App.module.css';
+import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 
-function App() {
+function App ()
+{
   return (
-    <div className={style.App}>
-      <header className={style['App-header']}>
-        <img src={logo} className={style['App-logo']} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className={style['App-link']}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={ style.App }>
+      <div className={ style.appHeader }>
+        <Layout.Header className={ style.mainHeader }>
+          <img src={ logo } alt="logo"
+            className={ style.AppLogo } />
+          <Typography.Title level={ 3 }
+            className={ style.title }>
+            React 旅游网
+          </Typography.Title>
+          <Input.Search
+            placeholder='请输入旅游目的地、主题或者关键字'
+            className={ style.searchInput } />
+        </Layout.Header>
+      </div>
     </div>
   );
 }
