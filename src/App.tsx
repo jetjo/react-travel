@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
 import 'antd/dist/reset.css';
 import style from './App.module.css';
-import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
+import { Header, Footer, SideMenu, Carousel, ProductCollection } from './components';
+import { Row, Col, Typography } from 'antd';
+import { productList1, productList2, productList3 } from "@/mocks/product";
+import sideImage from "./assets/images/sider_2019_12-09.png";
+import sideImage2 from "./assets/images/sider_2019_02-04.png";
+import sideImage3 from "./assets/images/sider_2019_02-04-2.png";
 
 function App ()
 {
   return (
     <div className={ style.App }>
-      <div className={ style.appHeader }>
-        <Layout.Header className={ style.mainHeader }>
-          <img src={ logo } alt="logo"
-            className={ style.AppLogo } />
-          <Typography.Title level={ 3 }
-            className={ style.title }>
-            React 旅游网
-          </Typography.Title>
-          <Input.Search
-            placeholder='请输入旅游目的地、主题或者关键字'
-            className={ style.searchInput } />
-        </Layout.Header>
+      <Header />
+      {/* 页面的内容 content */ }
+      <div className={ style.pageContent }>
+        <Row style={ { marginTop: 20 } }>
+          <Col span={ 6 }>
+            <SideMenu />
+          </Col>
+          <Col span={ 18 }>
+            <Carousel />
+          </Col>
+        </Row>
+        <ProductCollection
+          title={ <Typography.Title level={ 3 } type="warning">爆款推荐</Typography.Title> }
+          sideImage={ sideImage }
+          products={ productList1 }
+        />
+        <ProductCollection
+          title={ <Typography.Title level={ 3 } type="danger">新品上市</Typography.Title> }
+          sideImage={ sideImage2 }
+          products={ productList2 }
+        />
+        <ProductCollection
+          title={ <Typography.Title level={ 3 } type="success">新品上市</Typography.Title> }
+          sideImage={ sideImage3 }
+          products={ productList3 }
+        />
       </div>
+      <Footer />
     </div>
   );
 }
