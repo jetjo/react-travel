@@ -15,11 +15,11 @@ export const ProductCollection: React.FC<Prop> = ( { title, sideImage, products 
     return (
         <div className={ style.content }>
             <Divider orientation='left'>{ title }</Divider>
-            <Row>
-                <Col span={ 5 }>
+            <Row gutter={10}>
+                <Col span={ 4 }>
                     <img src={ sideImage } className={ style.sideImage } alt="" />
                 </Col>
-                <Col span={ 19 }>
+                <Col span={ 20 }>
                     <Row>
                         <Col span={ 12 }>
                             <ProductImage

@@ -4,15 +4,21 @@ import style from './Header.module.css';
 import { Typography, Dropdown, Menu, Button, Layout, Input } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
 
+import { useStoreSelector, useStoreDispatch } from '@/store-hooks';
+import { counterIncrement, counterSet } from "@/features";
+
 const Header:React.FC = () =>
 {
+    const count = useStoreSelector( ( s ) => s.counter.value );
+    const dispatch = useStoreDispatch();
+
     return (
         <div className={ style.appHeader }>
             {/* top-header */ }
             <div className={ style.topHeader }>
                 <div className={ style.inner }>
                     <Typography.Text>
-                        让旅游更幸福
+                        让旅游更幸福{ count }
                     </Typography.Text>
                     <div className={ style.dropdownBox }>
                         <Dropdown.Button
@@ -32,7 +38,7 @@ const Header:React.FC = () =>
                         className={ style.buttonGroup }
                     >
                         <Button>注册</Button>
-                        <Button>登录</Button>
+                        <Button onClick={() => dispatch(counterSet(9))}>登录</Button>
                     </Button.Group>
                 </div>
             </div>
